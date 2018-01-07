@@ -5,7 +5,9 @@ import {mount} from 'react-mounter'
 
 import Layout from './comun/layout.jsx'
 import Home   from './components/home'
-import Habitaciones  from './components/habitaciones'
+import Habitaciones  from './components/habitaciones/habitacionesIndex'
+import Add  from './components/habitaciones/add'
+
 import Habitacion from './components/habitacion'
 
 FlowRouter.route('/', {
@@ -39,6 +41,18 @@ FlowRouter.route('/admin/habitaciones', {
     
     mount( Layout, {
       contenido: function() { return (<Habitaciones />) },
+      saludar  : "Hola, esta propiedad está disponible en Layout"
+    });
+    
+  }
+});
+
+FlowRouter.route('/admin/habitaciones/add', {
+  name: 'add',
+  action( params ) {
+    
+    mount( Layout, {
+      contenido: function() { return (<Add />) },
       saludar  : "Hola, esta propiedad está disponible en Layout"
     });
     
